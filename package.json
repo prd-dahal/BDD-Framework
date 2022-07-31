@@ -1,0 +1,12 @@
+{
+  "name": "BDD-Framework",
+  "version": "1.0.0",
+  "description": "BDD framework with cypress & cucumber js for frontend development",
+  "main": "index.js",
+  "repository": "git@github.com:aomini/BDD-Framework.git",
+  "author": "aomini daiki <rakesh.shrestha@hazesoft.co>",
+  "license": "MIT",
+  "dependencies": {
+    "cypress": "^10.3.1"
+  }
+}
