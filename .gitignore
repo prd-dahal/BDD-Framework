@@ -1,4 +1,6 @@
 node_modules
 mochawesome-report
-cypress/videos
-cypress/screenshots
+BDD/videos
+BDD/screenshots
+BDD/cucumber-json
+BDD/reports
