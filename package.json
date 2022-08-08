@@ -1,12 +1,26 @@
 {
-  "name": "BDD-Framework",
+  "name": "@rakesh/bdd",
   "version": "1.0.0",
   "description": "BDD framework with cypress & cucumber js for frontend development",
   "main": "index.js",
   "repository": "git@github.com:aomini/BDD-Framework.git",
   "author": "aomini daiki <rakesh.shrestha@hazesoft.co>",
   "license": "MIT",
-  "dependencies": {
-    "cypress": "^10.3.1"
+  "scripts": {
+    "test": "cypress run",
+    "chromeTest": "npm run test -- --browser chrome --parallel"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "nonGlobalStepBaseDir": "BDD/e2e/step_definitions",
+    "stepDefinitions": "BDD/e2e/feature"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^28.1.3",
+    "cypress": "^10.3.1",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "mocha": "^10.0.0",
+    "mochawesome": "^7.1.3"
   }
 }
