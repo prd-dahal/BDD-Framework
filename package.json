@@ -13,7 +13,13 @@
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": true,
     "nonGlobalStepBaseDir": "BDD/e2e/step_definitions",
-    "stepDefinitions": "BDD/e2e/feature"
+    "stepDefinitions": "BDD/e2e/feature",
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "BDD/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
   },
   "dependencies": {},
   "devDependencies": {

@@ -1,0 +1,54 @@
+[
+  {
+    "description": "  Testing BDD",
+    "keyword": "Feature",
+    "name": "Example Test",
+    "line": 1,
+    "id": "example-test",
+    "tags": [],
+    "uri": "example.feature",
+    "elements": [
+      {
+        "id": "example-test;truthly-value-is-true",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Truthly value is true",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "I am example",
+            "result": {
+              "status": "passed",
+              "duration": 304000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 6,
+            "name": "A truthy value is true",
+            "result": {
+              "status": "passed",
+              "duration": 4000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 7,
+            "name": "I am on home page",
+            "result": {
+              "status": "failed",
+              "duration": 1000000,
+              "error_message": "AssertionError: expected 'example' to match /examplee/\n    at Context.eval (http://localhost:40911/__cypress/tests?p=BDD/e2e/feature/example.feature:41:24)\n    at Context.resolveAndRunStepDefinition (http://localhost:40911/__cypress/tests?p=BDD/e2e/feature/example.feature:12270:29)\n    at Context.eval (http://localhost:40911/__cypress/tests?p=BDD/e2e/feature/example.feature:11591:35)"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
