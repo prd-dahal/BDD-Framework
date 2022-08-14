@@ -6,6 +6,7 @@
   "repository": "git@github.com:aomini/BDD-Framework.git",
   "author": "aomini daiki <rakesh.shrestha@hazesoft.co>",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "test": "cypress run",
     "chromeTest": "npm run test -- --browser chrome --parallel"

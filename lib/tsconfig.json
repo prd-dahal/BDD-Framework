@@ -7,7 +7,7 @@
     "declaration": true,
     "declarationDir": "dist",
     "outDir": "dist",
-    "module": "ES6",
+    "module": "CommonJS",
     "allowJs": false,
     "allowUnreachableCode": false,
     "noImplicitAny": true,

@@ -1,9 +1,10 @@
 import { Given, When } from "cypress-cucumber-preprocessor/steps";
 
-Given("I am on home page", () => {
-  expect("example").to.match(/examplee/);
+Given("I am on {string}", (page) => {
+  expect(true).to.be.truthy;
 });
 
-// When("I resize the window to {breakpoint}", () => {});
-
-// When("I view the window in {device}", () => {});
+When("I view the page from {string}", async (device) => {
+  const switchDevice = require("@rakesh/lib")[device];
+  switchDevice();
+});
