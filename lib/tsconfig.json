@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "types": ["cypress", "node"],
+    "strict": true,
+    "declaration": true,
+    "declarationDir": "dist",
+    "outDir": "dist",
+    "module": "ES6",
+    "allowJs": false,
+    "allowUnreachableCode": false,
+    "noImplicitAny": true,
+    "skipLibCheck": true
+  },
+
+  "include": ["**/*.ts"]
+}

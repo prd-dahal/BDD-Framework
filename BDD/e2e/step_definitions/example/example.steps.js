@@ -1,4 +1,4 @@
-import { Given } from "cypress-cucumber-preprocessor/steps";
+import { Given, When } from "cypress-cucumber-preprocessor/steps";
 
 Given("I am example", () => {
   expect("example").to.match(/example/);
