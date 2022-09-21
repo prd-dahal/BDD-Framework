@@ -4,9 +4,11 @@
   "main": "dist/index.js",
   "type": "module",
   "license": "MIT",
-  "dependencies": {
+  "scripts": {
     "watch": "tsc --watch",
-    "build": "tsc",
+    "build": "tsc"
+  },
+  "dependencies": {
     "cypress": "^10.4.0"
   },
   "devDependencies": {

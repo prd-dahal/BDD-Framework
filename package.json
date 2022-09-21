@@ -6,7 +6,6 @@
   "repository": "git@github.com:aomini/BDD-Framework.git",
   "author": "aomini daiki <rakesh.shrestha@hazesoft.co>",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "test": "cypress run",
     "chromeTest": "npm run test -- --browser chrome --parallel"
@@ -26,6 +25,7 @@
     "multiple-cucumber-html-reporter": "^1.21.6"
   },
   "devDependencies": {
+    "chai": "^4.3.6",
     "cypress": "^10.4.0",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "jest": "^28.1.3",
