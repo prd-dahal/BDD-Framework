@@ -14,3 +14,15 @@ declare namespace Cypress {
     triggerTab(): Chainable<void>;
   }
 }
+
+declare namespace Cypress {
+  interface Chainable {
+    triggerKey(key: string): Chainable<void>;
+  }
+}
+
+declare namespace Cypress {
+  interface Chainable {
+    triggerSpace(): Chainable<void>;
+  }
+}
