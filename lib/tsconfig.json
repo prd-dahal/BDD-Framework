@@ -11,8 +11,12 @@
     "allowJs": false,
     "allowUnreachableCode": false,
     "noImplicitAny": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/locators/*": ["./src/locators/*"]
+    }
   },
 
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts", "cypress.config.js"]
 }

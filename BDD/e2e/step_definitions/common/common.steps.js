@@ -5,6 +5,6 @@ Given("I am on {string}", (page) => {
 });
 
 When("I view the page from {string}", async (device) => {
-  const switchDevice = require("@rakesh/lib")[device];
-  switchDevice();
+  // const switchDevice = require("@rakesh/lib")[device];
+  // switchDevice();
 });

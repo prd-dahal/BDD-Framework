@@ -1,0 +1,12 @@
+import "./setCookie";
+import "./getCookie";
+import "./deleteCookie";
+import "./getLocalStorage";
+import "./setLocalStorage";
+import "./goBack";
+import "./goForward";
+import "./scrollToTop";
+import "./scrollDown";
+import "./scrollToElement";
+import "./visit";
+import "./reloadPage";
