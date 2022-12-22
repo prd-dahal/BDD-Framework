@@ -5,10 +5,20 @@ import {
   insonInterceptors,
   mshieldInterceptors,
 } from "../../../support/interceptors";
-import { envVariables } from "../../../config";
+import { envVariables, viewports } from "../../../config";
 
 Given("my previous records are deleted of {string}", (PHONE_NUMBER) => {
   cy.removeUser(PHONE_NUMBER);
+});
+
+Given("the test is done in {string}", (DEVICE) => {
+  const deviceFound = viewports.find((device) => device === DEVICE);
+  console.log("The device is found", deviceFound);
+  if (!deviceFound) {
+    throw new Error("The device is not found");
+  } else {
+    cy.viewport(DEVICE);
+  }
 });
 
 Given("interceptors are loaded", () => {

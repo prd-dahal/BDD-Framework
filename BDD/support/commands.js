@@ -81,7 +81,6 @@ Cypress.Commands.add("fillOtpAPI", (PHONE_NUMBER) => {
         } else {
           otp = messageArray[messageArray.length - 1];
         }
-        console.log(otp);
         cy.fillOtp(otp);
       });
     });

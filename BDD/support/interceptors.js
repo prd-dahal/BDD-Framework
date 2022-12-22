@@ -2,7 +2,7 @@ import { envVariables } from "../config";
 export const commonInterceptors = () => {
   cy.intercept(
     "POST",
-    `${envVariables["CYPRESS_CMS_URL"]}**/registrations/otp/*`
+    `${envVariables["CYPRESS_CMS_URL"]}**/registrations/otp/**`
   ).as("sendOTP");
 
   cy.intercept(
@@ -22,7 +22,7 @@ export const commonInterceptors = () => {
 
   cy.intercept(
     "GET",
-    `${envVariables["DASHBOARD_API"]}payment/selected-product/*`
+    `${envVariables["DASHBOARD_API"]}payment/selected-product/**`
   ).as("dashboardPolicy");
   cy.intercept(
     "POST",

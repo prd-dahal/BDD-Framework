@@ -4,8 +4,8 @@
   Scenario: Inson Travel Normal Flow
   
    
-    Given my previous records are deleted of "9779849354809"
-    Given interceptors are loaded
+   
+    Given interceptors are loaded 
     When I visit url "http://onboard.v2.taksure.xyz/travel-insurance/form"
     
     Then select TEXT "Afghanistan" of SELECTORNAME "name" and SELECTORVALUE "destinationCountry"
