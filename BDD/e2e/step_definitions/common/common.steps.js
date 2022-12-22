@@ -1,13 +1,33 @@
 import { Given, Then, When } from "cypress-cucumber-preprocessor/steps";
 import { splitDateIntoDayMonthYear } from "../../step_definitions/utils/index.js";
-import { commonInterceptors } from "../../../support/interceptors";
+import {
+  commonInterceptors,
+  insonInterceptors,
+  mshieldInterceptors,
+} from "../../../support/interceptors";
+import { envVariables } from "../../../config";
 
 Given("my previous records are deleted of {string}", (PHONE_NUMBER) => {
   cy.removeUser(PHONE_NUMBER);
 });
 
-When("I visit url {string}", (url) => {
+Given("interceptors are loaded", () => {
   commonInterceptors();
+  switch (envVariables["COMPANY"]) {
+    case "INSON":
+      insonInterceptors();
+      break;
+    case "MSHIELD":
+      mshieldInterceptors();
+      break;
+  }
+});
+
+When("I visit url from config", () => {
+  cy.visit(envVariables["CYPRESS_TEST_URL"]);
+});
+
+When("I visit url {string}", (url) => {
   cy.visit(url);
 });
 
@@ -39,8 +59,14 @@ Then(
   }
 );
 
-Then("click on DATA-TESTID {string}", (SELECTORVALUE) => {
+Then("click on {string}", (SELECTORVALUE) => {
   cy.get(`[data-testid="${SELECTORVALUE}"]`).click({ force: true });
+});
+
+Then("click on {string} element of {string}", (POSITION, SELECTORVALUE) => {
+  cy.get(`[data-testid="${SELECTORVALUE}"]`)
+    .eq(Number(POSITION))
+    .click({ force: true });
 });
 
 Then(
@@ -49,6 +75,9 @@ Then(
     cy.get(`[${SELECTORNAME}="${SELECTORVALUE}"]`).type(TEXT);
   }
 );
+Then("type TEXT {string} on {string}", (TEXT, SELECTORVALUE) => {
+  cy.get(`[${"data-testid"}="${SELECTORVALUE}"]`).type(TEXT);
+});
 
 Then("select date {string} on SELECTORNAME {string}", (date, selector) => {
   const splittedDate = splitDateIntoDayMonthYear(date);
@@ -64,19 +93,30 @@ Then("wait for {string} miliseconds", (seconds) => {
 });
 
 Then(
-  "Upload IMAGE {string} on SELECTORNAME {string} SELECTORVALUE {string}",
+  "upload IMAGE {string} on SELECTORNAME {string} SELECTORVALUE {string}",
   (IMAGE, SELECTORNAME, SELECTORVALUE) => {
     cy.get(`[${SELECTORNAME}="${SELECTORVALUE}"]`).selectFile(
-      `${Cypress.env("CYPRESS_IMAGE_PATH")}${IMAGE}`
+      `${envVariables["CYPRESS_IMAGE_PATH"]}${IMAGE}`
     );
-    cy.wait("@uploadImage");
   }
 );
+
+Then("upload IMAGE {string} on {string}", (IMAGE, SELECTORVALUE) => {
+  cy.get(`[data-testid="${SELECTORVALUE}"]`).selectFile(
+    `${envVariables["CYPRESS_IMAGE_PATH"]}${IMAGE}`
+  );
+});
+
+Then("wait until image is uploaded", () => {
+  cy.wait("@uploadImage");
+});
 
 Then("wait until user is registered", () => {
   cy.wait("@registeredUser");
 });
 
 Then("payme fillOtp with {string}", (OTP) => {
+  cy.wait("@paymeSendOTP");
   cy.fillOtpPayme(OTP);
+  cy.wait("@subscribe");
 });

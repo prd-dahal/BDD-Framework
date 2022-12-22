@@ -11,7 +11,10 @@
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
-//
+//]
+
+import { envVariables } from "../config";
+
 Cypress.Commands.add("addProduct", (name) => {
   cy.get("h4.card-title").each(($el, index, $list) => {
     if ($el.text().includes(name)) {
@@ -57,15 +60,13 @@ Cypress.Commands.add("fillDate", (splittedDate, selector) => {
 
 Cypress.Commands.add("fillOtpAPI", (PHONE_NUMBER) => {
   cy.wait("@sendOTP").then(() => {
-    cy.request("POST", `${Cypress.env("CYPRESS_DASHBOARD_URL")}user/auth`, {
-      username: Cypress.env("CYPRESS_DASHBOARD_USERNAME"),
-      password: Cypress.env("CYPRESS_DASHBOARD_PASSWORD"),
+    cy.request("POST", `${envVariables["CYPRESS_DASHBOARD_URL"]}user/auth`, {
+      username: envVariables["CYPRESS_DASHBOARD_USERNAME"],
+      password: envVariables["CYPRESS_DASHBOARD_PASSWORD"],
     }).then((adminAuthResponse) => {
       cy.request({
         method: "GET",
-        url: `${Cypress.env(
-          "CYPRESS_DASHBOARD_URL"
-        )}test/log/?phone_number=${PHONE_NUMBER}&type=otp&limit=1`, // baseUrl is prepend to URL
+        url: `${envVariables["CYPRESS_DASHBOARD_URL"]}test/log/?phone_number=${PHONE_NUMBER}&type=otp&limit=1`, // baseUrl is prepend to URL
         headers: {
           Authorization: `Bearer ${adminAuthResponse?.body?.access}`,
         },
@@ -73,8 +74,14 @@ Cypress.Commands.add("fillOtpAPI", (PHONE_NUMBER) => {
         // response.body is automatically serialized into JSON
         expect(response.status).is.equal(200); // true
         cy.wait(2000);
-        const messageArray = response?.body[0].message.split(" ");
-        const otp = messageArray[messageArray.length - 1];
+        const messageArray = response?.body[0]?.message.split(" ");
+        let otp = "666666";
+        if (envVariables["COMPANY"] === "MSHIELD") {
+          otp = messageArray[0];
+        } else {
+          otp = messageArray[messageArray.length - 1];
+        }
+        console.log(otp);
         cy.fillOtp(otp);
       });
     });
@@ -83,14 +90,10 @@ Cypress.Commands.add("fillOtpAPI", (PHONE_NUMBER) => {
 Cypress.Commands.add("removeUser", (PHONE_NUMBER) => {
   cy.request({
     method: "DELETE",
-    url: `${Cypress.env(
-      "CYPRESS_DASHBOARD_URL"
-    )}user/${PHONE_NUMBER}/delete-user`,
+    url: `${envVariables["CYPRESS_DASHBOARD_URL"]}user/${PHONE_NUMBER}/delete-user`,
     headers: {
       Authorization: `Basic ${btoa(
-        `${Cypress.env("CYPRESS_DASHBOARD_USERNAME")}:${Cypress.env(
-          "CYPRESS_DASHBOARD_PASSWORD"
-        )}`
+        `${envVariables["CYPRESS_DASHBOARD_USERNAME"]}:${envVariables["CYPRESS_DASHBOARD_PASSWORD"]}`
       )}}`,
     },
   });
