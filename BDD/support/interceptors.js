@@ -7,7 +7,7 @@ export const commonInterceptors = () => {
 
   cy.intercept(
     "POST",
-    `${envVariables["CYPRESS_CMS_URL"]}**/registrations/otp/verify/*`
+    `${envVariables["CYPRESS_CMS_URL"]}**/registrations/otp/verify/**`
   ).as("verifyOTP");
 
   cy.intercept(
