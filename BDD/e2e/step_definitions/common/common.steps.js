@@ -124,9 +124,11 @@ Then("wait until image is uploaded", () => {
 Then("wait until user is registered", () => {
   cy.wait("@registeredUser");
 });
+Then("wait until subscribe", () => {
+  cy.wait("@subscribe");
+});
 
 Then("payme fillOtp with {string}", (OTP) => {
   cy.wait("@paymeSendOTP");
   cy.fillOtpPayme(OTP);
-  cy.wait("@subscribe");
 });

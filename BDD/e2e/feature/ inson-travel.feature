@@ -3,6 +3,7 @@
 BDD/cucumber-json/example.cucumber.json  Testing BDD
   Scenario: Inson Travel Normal Flow
     Given interceptors are loaded 
+    Given my previous records are deleted of "9779849354809"
     When I visit url "http://onboard.v2.taksure.xyz/travel-insurance/form"
     Then select TEXT "Afghanistan" of SELECTORNAME "name" and SELECTORVALUE "destinationCountry"
     Then click on TAG "span" that contains TEXT "Single Trip"
@@ -36,7 +37,7 @@ BDD/cucumber-json/example.cucumber.json  Testing BDD
     Then type TEXT "99" on SELECTORNAME "name" SELECTORVALUE "paycomExpiryYear"
     Then click on "paycomBtn"
     Then payme fillOtp with "666666"  
-   
+    Then wait for "5000" miliseconds
 
 
    

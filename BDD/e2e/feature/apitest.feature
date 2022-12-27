@@ -1,5 +1,8 @@
- Feature: API Tests
-    Testing API
-    Scenario: All API Tests
-        Given I test "INSON"
- 
+Feature: INSON TRAVEL INSURANCE
+
+    BDD/cucumber-json/example.cucumber.json  Testing BDD
+    Scenario: Inson Travel Normal Flow
+
+        When I test "INSON"
+
+
