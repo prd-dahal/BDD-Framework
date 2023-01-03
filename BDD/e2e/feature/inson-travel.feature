@@ -19,17 +19,20 @@ BDD/cucumber-json/example.cucumber.json  Testing BDD
     Then click on TAG "button" SELECTORNAME "type" SELECTORVALUE "submit"
     Then click on "+998"
     Then click on "+977"
-    Then type TEXT "9849354809" on SELECTORNAME "name" SELECTORVALUE "phoneNumber"
+    Then type TEXT "9821117484" on SELECTORNAME "name" SELECTORVALUE "phoneNumber"
     Then click on "nextBtn"
-    Then FillOTP PHONE_NUMBER "+9779849354809"
+    Then FillOTP PHONE_NUMBER "+9779821117484"
     Then wait for "700" miliseconds
     Then upload IMAGE "passport.jpg" on SELECTORNAME "name" SELECTORVALUE "passportFront"
     Then wait until image is uploaded
     Then click on "nextBtn"
-    Then wait for "2000" miliseconds
-    Then click on TAG "button" that contains TEXT "Confirm"
-    Then click on SELECTORNAME "for" SELECTORVALUE "confirm"
-    Then click on TAG "button" that contains TEXT "Confirm"
+    Then wait for "10000" miliseconds
+    # Then click on TAG "button" that contains TEXT "Confirm"
+    # Then click on SELECTORNAME "for" SELECTORVALUE "confirm"
+    # Then click on TAG "button" that contains TEXT "Confirm"
+    Then click on "confirmBtn"
+    Then click on "agreeCheck"
+    Then click on "confirmBtn"
     Then type TEXT "pradeep.dahal@hazesoft.co" on SELECTORNAME "name" SELECTORVALUE "email"
     Then click on "email-confirm-button"
     Then wait until user is registered

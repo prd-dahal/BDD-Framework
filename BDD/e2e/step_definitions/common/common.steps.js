@@ -118,8 +118,11 @@ Then('wait for {string} miliseconds', (seconds) => {
 Then(
   'upload IMAGE {string} on SELECTORNAME {string} SELECTORVALUE {string}',
   (IMAGE, SELECTORNAME, SELECTORVALUE) => {
-    cy.get(`[${SELECTORNAME}="${SELECTORVALUE}"]`).selectFile(
-      `${envVariables['CYPRESS_IMAGE_PATH']}${IMAGE}`
+    // cy.get(`[${SELECTORNAME}="${SELECTORVALUE}"]`).selectFile(
+    //   `${envVariables['CYPRESS_IMAGE_PATH']}${IMAGE}`
+    // );
+    cy.get(`[${SELECTORNAME}="${SELECTORVALUE}"]`).each(($el) =>
+      cy.wrap($el).selectFile(`${envVariables['CYPRESS_IMAGE_PATH']}${IMAGE}`)
     );
   }
 );

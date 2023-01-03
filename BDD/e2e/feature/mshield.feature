@@ -13,6 +13,7 @@
         Then wait until image is uploaded
         Then wait until image is uploaded
         Then type TEXT "7827207868" on "phoneNumber"
+        Then select date "18 Feb 1998" on SELECTORNAME "dateOfBirth"
         Then click on "acceptTerms"
         Then click on "nextBtn"
         Then FillOTP PHONE_NUMBER "9647827207868"
@@ -22,7 +23,5 @@
         Then wait for "1000" miliseconds
         Then click on "nextBtn"
         Then wait until user is registered
-        Then wait until subscribe
-        Then wait for "5000" miliseconds
-
+        
 

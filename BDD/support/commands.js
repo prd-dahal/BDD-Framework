@@ -52,9 +52,10 @@ Cypress.Commands.add('fillDate', (splittedDate, selector) => {
     cy.get('[data-testid="date-month"]')
       .click()
       .type(`${splittedDate.month}{enter}`);
-    cy.get('[data-testid="date-year"]')
-      .click()
-      .type(`${splittedDate.year}{enter}`);
+    cy.get('[data-testid="date-year"] input').type(
+      `${splittedDate.year}{enter}`,
+      { force: true, timeout: 500 }
+    );
   });
 });
 
