@@ -55,6 +55,10 @@ Then(
   }
 );
 
+Then("select TEXT {string} of {string}", (TEXT, SELECTORVALUE) => {
+  cy.get(`[${"data-testid"}=${SELECTORVALUE}]`).select(TEXT);
+});
+
 Then(
   "click on TAG {string} SELECTORNAME {string} SELECTORVALUE {string}",
   (TAG, SELECTORNAME, SELECTORVALUE) => {
@@ -89,7 +93,7 @@ Then("type TEXT {string} on {string}", (TEXT, SELECTORVALUE) => {
   cy.get(`[${"data-testid"}="${SELECTORVALUE}"]`).type(TEXT);
 });
 
-Then("select date {string} on SELECTORNAME {string}", (date, selector) => {
+Then("select date {string} on {string}", (date, selector) => {
   const splittedDate = splitDateIntoDayMonthYear(date);
   cy.fillDate(splittedDate, selector);
 });
@@ -126,6 +130,10 @@ Then("wait until user is registered", () => {
 });
 Then("wait until subscribe", () => {
   cy.wait("@subscribe");
+});
+
+Then("wait until premium is calculated", () => {
+  cy.wait("@premiumCalculate");
 });
 
 Then("payme fillOtp with {string}", (OTP) => {

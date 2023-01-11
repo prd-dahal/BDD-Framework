@@ -35,6 +35,10 @@ export const insonInterceptors = () => {
   cy.intercept("POST", `${envVariables["PAYME_CHECKOUT_URL"]}`).as(
     "paymeSendOTP"
   );
+  cy.intercept(
+    "POST",
+    `${envVariables["DASHBOARD_API"]}/payment/product/travel-insurance/policy/platinum//`
+  ).as("premiumCalculate");
 };
 
 export const mshieldInterceptors = () => {
