@@ -93,7 +93,20 @@ Then("type TEXT {string} on {string}", (TEXT, SELECTORVALUE) => {
   cy.get(`[${"data-testid"}="${SELECTORVALUE}"]`).type(TEXT);
 });
 
-Then("select date {string} on {string}", (date, selector) => {
+Then("input number of people who need cover to {string}", (people) => {
+  for (let i = 1; i < Number(people); i++) {
+    cy.get(`[data-testid=increaseBtn]`).click();
+  }
+});
+
+Then("input dates {string} on SELECTORNAME {string}", (dates, selector) => {
+  const splittedDate = dates
+    .split(",")
+    .map((date) => splitDateIntoDayMonthYear(date.trim()));
+  cy.fillMultipleDate(splittedDate, selector);
+});
+
+Then("select date {string} on SELECTORNAME {string}", (date, selector) => {
   const splittedDate = splitDateIntoDayMonthYear(date);
   cy.fillDate(splittedDate, selector);
 });

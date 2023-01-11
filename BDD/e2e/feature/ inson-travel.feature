@@ -9,9 +9,11 @@ BDD/cucumber-json/example.cucumber.json  Testing BDD
     Then click on TAG "span" that contains TEXT "Single Trip"
     Then select date "18 Feb 2023" on SELECTORNAME "insuranceStartDate"
     Then select date "18 Mar 2023" on SELECTORNAME "insuranceEndDate"
-    Then click on TAG "span" that contains TEXT "Tourism"
+    Then click on "tourism"
     Then click on "nextBtn"
-    Then select date "18 Feb 1998" on SELECTORNAME "travellersBirthDate"
+    Then input number of people who need cover to "3"
+    Then input dates "18 Feb 1998, 19 Feb 1998, 20 Feb 1998" on SELECTORNAME "travellersBirthDate"
+    
     Then click on TAG "button" SELECTORNAME "data-testid" SELECTORVALUE "nextBtn"
     Then click on SELECTORNAME "for" SELECTORVALUE "platinum"
     Then click on TAG "button" SELECTORNAME "type" SELECTORVALUE "submit"
