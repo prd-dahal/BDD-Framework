@@ -1,5 +1,5 @@
- Feature: MSHIELD INSURANCE
-    
+Feature: MSHIELD INSURANCE
+
     Testing BDD
     @MSHIELD_TEST
     Scenario: Mshield Normal Flow
@@ -24,5 +24,5 @@
         Then wait until user is registered
         Then wait until subscribe
         Then wait for "5000" miliseconds
-
+        When I visit url "https://customer.mshield-dev.taksure.xyz"
 

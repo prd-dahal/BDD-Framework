@@ -26,7 +26,7 @@ export const commonInterceptors = () => {
   ).as("dashboardPolicy");
   cy.intercept(
     "POST",
-    `${envVariables["DASHBOARD_API"]}/payment/product/**/payment/**/subscribe`
+    `${envVariables["DASHBOARD_API"]}payment/product/**/payment/**/subscribe`
   ).as("subscribe");
 };
 
@@ -37,7 +37,7 @@ export const insonInterceptors = () => {
   );
   cy.intercept(
     "POST",
-    `${envVariables["DASHBOARD_API"]}/payment/product/travel-insurance/policy/platinum//`
+    `${envVariables["DASHBOARD_API"]}payment/product/car-insurance/policy/Premium/premium/`
   ).as("premiumCalculate");
 };
 

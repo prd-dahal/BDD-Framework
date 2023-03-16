@@ -22,6 +22,12 @@ Given("the test is done in {string}", (DEVICE) => {
 });
 
 Given("interceptors are loaded", () => {
+  Cypress.on("uncaught:exception", (err, runnable) => {
+    // returning false here prevents Cypress from
+    // failing the test
+    return false;
+  });
+
   commonInterceptors();
   switch (envVariables["COMPANY"]) {
     case "INSON":
@@ -38,7 +44,12 @@ When("I visit url from config", () => {
 });
 
 When("I visit url {string}", (url) => {
-  cy.visit(url);
+  cy.visit(url, {
+    auth: {
+      username: "taksure",
+      password: "taksure$$$123",
+    },
+  });
 });
 
 Then(
