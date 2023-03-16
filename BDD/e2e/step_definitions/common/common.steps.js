@@ -117,7 +117,7 @@ Then("input dates {string} on SELECTORNAME {string}", (dates, selector) => {
   cy.fillMultipleDate(splittedDate, selector);
 });
 
-Then("select date {string} on SELECTORNAME {string}", (date, selector) => {
+Then("select date {string} on {string}", (date, selector) => {
   const splittedDate = splitDateIntoDayMonthYear(date);
   cy.fillDate(splittedDate, selector);
 });
