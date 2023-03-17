@@ -40,7 +40,12 @@ Given("interceptors are loaded", () => {
 });
 
 When("I visit url from config", () => {
-  cy.visit(envVariables["CYPRESS_TEST_URL"]);
+  cy.visit(envVariables["CYPRESS_TEST_URL"], {
+    auth: {
+      username: "taksure",
+      password: "taksure$$$123",
+    },
+  });
 });
 
 When("I visit url {string}", (url) => {
