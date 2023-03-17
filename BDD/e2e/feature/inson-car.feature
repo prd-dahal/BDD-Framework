@@ -21,4 +21,4 @@ Feature: INSON CAR INSURANCE
         Then click on "+977"
         Then type TEXT "9849354809" on "phoneNumber"
         Then click on "nextBtn"
-        Then FillOTP PHONE_NUMBER "+9779849354809"
+        Then FillOTP PHONE_NUMBER "9779849354809"

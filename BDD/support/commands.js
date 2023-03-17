@@ -85,7 +85,7 @@ Cypress.Commands.add("fillOtpAPI", (PHONE_NUMBER) => {
     }).then((adminAuthResponse) => {
       cy.request({
         method: "GET",
-        url: `${envVariables["CYPRESS_DASHBOARD_URL"]}test/log/?phone_number=${PHONE_NUMBER}&type=otp&limit=1`, // baseUrl is prepend to URL
+        url: `${envVariables["CYPRESS_DASHBOARD_URL"]}test/log/${PHONE_NUMBER}/?type=otp`, // baseUrl is prepend to URL
         headers: {
           Authorization: `Bearer ${adminAuthResponse?.body?.access}`,
         },
@@ -94,7 +94,7 @@ Cypress.Commands.add("fillOtpAPI", (PHONE_NUMBER) => {
         expect(response.status).is.equal(200); // true
         cy.wait(2000);
 
-        const messageArray = response?.body[0]?.message.split(" ");
+        const messageArray = response?.body.message.split(" ");
         console.log(messageArray);
         console.log(response);
         let otp = "666666";
