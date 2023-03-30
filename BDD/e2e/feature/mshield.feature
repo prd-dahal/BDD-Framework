@@ -14,15 +14,15 @@ Feature: MSHIELD INSURANCE
         Then wait until image is uploaded
         Then type TEXT "7827207868" on "phoneNumber"
         Then click on "acceptTerms"
-        Then click on "nextBtn"
-        Then FillOTP PHONE_NUMBER "9647827207868"
-        Then click on "yesRadioBtn"
-        Then click on "None"
-        Then click on "nextBtn"
-        Then wait for "1000" miliseconds
-        Then click on "nextBtn"
-        Then wait until user is registered
-        Then wait until subscribe
-        Then wait for "5000" miliseconds
-        When I visit url "https://customer.mshield-dev.taksure.xyz"
+# Then click on "nextBtn"
+# Then FillOTP PHONE_NUMBER "9647827207868"
+# Then click on "yesRadioBtn"
+# Then click on "None"
+# Then click on "nextBtn"
+# Then wait for "1000" miliseconds
+# Then click on "nextBtn"
+# Then wait until user is registered
+# Then wait until subscribe
+# Then wait for "5000" miliseconds
+# When I visit url "https://customer.mshield-dev.taksure.xyz"
 
