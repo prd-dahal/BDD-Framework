@@ -16,8 +16,9 @@ Feature: MSHIELD INSURANCE
         Then click on "acceptTerms"
         Then wait for "2000" miliseconds
         Then select date "18 Mar 2002" on "dateOfBirth"
-# Then click on "nextBtn"
-# Then FillOTP PHONE_NUMBER "9647827207868"
+        Then type TEXT " asdf" on "fullname"
+        Then click on "nextBtn"
+        Then FillOTP PHONE_NUMBER "9647827207868"
 # Then click on "yesRadioBtn"
 # Then click on "None"
 # Then click on "nextBtn"

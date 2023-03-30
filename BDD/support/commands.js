@@ -47,19 +47,19 @@ Cypress.Commands.add("fillOtpPayme", (otp) => {
 Cypress.Commands.add("fillDate", (splittedDate, selector) => {
   console.log(splittedDate);
   cy.get(`[data-testid=${selector}]`).within(() => {
-    cy.wait(200);
+    cy.wait(300);
     cy.get('[data-testid="date-day"]')
       .click()
       .type(`${splittedDate.day}{enter}{enter}`);
-    cy.wait(200);
+    cy.wait(300);
     cy.get('[data-testid="date-month"]')
       .click()
       .type(`${splittedDate.month}{enter}{enter}`);
-    cy.wait(200);
+    cy.wait(300);
     cy.get('[data-testid="date-year"]')
       .click()
       .type(`${splittedDate.year}{enter}{enter}`);
-    cy.wait(200);
+    cy.wait(300);
   });
 });
 
@@ -96,12 +96,12 @@ Cypress.Commands.add("fillOtpAPI", (PHONE_NUMBER) => {
         // response.body is automatically serialized into JSON
         expect(response.status).is.equal(200); // true
         cy.wait(2000);
-
+        console.log(messageArray)
         const messageArray = response?.body.message.split(" ");
         console.log(messageArray);
         console.log(response);
         let otp = "666666";
-        if (envVariables["COMPANY"] === "MSHIELD") {
+        if (envVariables["CONTENT_REVERSED"]) {
           otp = messageArray[0];
         } else {
           otp = messageArray[messageArray.length - 1];

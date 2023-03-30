@@ -1,5 +1,6 @@
 ////// CHANGE HERE FOR DIFFERENT ENVIRONMENT
 const COMPANY = "MSHIELD"; // "INSON" or "MSHIELD"
+const CONTENT_REVERSED=false
 const TEST_URL = "https://onboard.mshield-dev.taksure.xyz/en/life-insurance/form";
 const DASHBOARD_URL = "https://dashboard.mshield-dev.taksure.xyz/api/v1/";
 const CMS_URL = "https://cms.mshield-dev.taksure.xyz/api/v1/";
@@ -15,6 +16,7 @@ export const envVariables = {
   CYPRESS_DASHBOARD_PASSWORD: "taksure$$$123",
   CYPRESS_IMAGE_PATH: `BDD/fixtures/images/${COMPANY}/`,
   PAYME_CHECKOUT_URL: "https://checkout.test.paycom.uz/api",
+  CONTENT_REVERSED:CONTENT_REVERSED
 };
 //DO NOT EDIT THIS
 
