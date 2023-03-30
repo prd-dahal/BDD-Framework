@@ -47,16 +47,19 @@ Cypress.Commands.add("fillOtpPayme", (otp) => {
 Cypress.Commands.add("fillDate", (splittedDate, selector) => {
   console.log(splittedDate);
   cy.get(`[data-testid=${selector}]`).within(() => {
-    cy.wait(100);
+    cy.wait(200);
     cy.get('[data-testid="date-day"]')
       .click()
       .type(`${splittedDate.day}{enter}{enter}`);
+    cy.wait(200);
     cy.get('[data-testid="date-month"]')
       .click()
       .type(`${splittedDate.month}{enter}{enter}`);
+    cy.wait(200);
     cy.get('[data-testid="date-year"]')
       .click()
       .type(`${splittedDate.year}{enter}{enter}`);
+    cy.wait(200);
   });
 });
 

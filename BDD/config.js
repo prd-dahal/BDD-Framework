@@ -1,6 +1,6 @@
 ////// CHANGE HERE FOR DIFFERENT ENVIRONMENT
 const COMPANY = "MSHIELD"; // "INSON" or "MSHIELD"
-const TEST_URL = "http://dashboard.mshield-dev.taksure.xyz/en/life-insurance/form";
+const TEST_URL = "https://onboard.mshield-dev.taksure.xyz/en/life-insurance/form";
 const DASHBOARD_URL = "https://dashboard.mshield-dev.taksure.xyz/api/v1/";
 const CMS_URL = "https://cms.mshield-dev.taksure.xyz/api/v1/";
 //////
