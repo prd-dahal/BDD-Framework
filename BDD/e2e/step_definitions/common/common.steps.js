@@ -5,7 +5,7 @@ import {
   insonInterceptors,
   mshieldInterceptors,
 } from "../../../support/interceptors";
-import { envVariables, viewports } from "../../../config";
+import { envVariables, viewports, isPhone } from "../../../config";
 
 Given("my previous records are deleted of {string}", (PHONE_NUMBER) => {
   cy.removeUser(PHONE_NUMBER);
@@ -18,6 +18,13 @@ Given("the test is done in {string}", (DEVICE) => {
     throw new Error("The device is not found");
   } else {
     cy.viewport(DEVICE);
+    if(isPhone(DEVICE)){
+      cy.on('window:before:load', (win) => {
+        Object.defineProperty(win.navigator, 'userAgent', {
+           value: 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+          });
+      })
+    }
   }
 });
 

@@ -1,9 +1,9 @@
 ////// CHANGE HERE FOR DIFFERENT ENVIRONMENT
-const COMPANY = "MSHIELD"; // "INSON" or "MSHIELD"
+const COMPANY = "INSON"; // "INSON" or "MSHIELD"
 const CONTENT_REVERSED=false
-const TEST_URL = "https://onboard.mshield-dev.taksure.xyz/en/life-insurance/form";
-const DASHBOARD_URL = "https://dashboard.mshield-dev.taksure.xyz/api/v1/";
-const CMS_URL = "https://cms.mshield-dev.taksure.xyz/api/v1/";
+const TEST_URL = "https://onboard.v2.taksure.xyz/en-GB/car-insurance/form";
+const DASHBOARD_URL = "https://dashboard.v2.taksure.xyz/api/v1/";
+const CMS_URL = "https://cms.v2.taksure.xyz/api/v1/";
 //////
 
 //DO NOT EDIT THIS
@@ -41,3 +41,22 @@ export const viewports = [
   "samsung-s10",
   "samsung-s10+",
 ];
+
+export const isPhone = (DEVICE)=>{
+  const phones = [
+  "iphone-3",
+  "iphone-4",
+  "iphone-5",
+  "iphone-6",
+  "iphone-6+",
+  "iphone-7",
+  "iphone-8",
+  "iphone-x",
+  "iphone-xr",
+  "iphone-se2",
+  "samsung-note9",
+  "samsung-s10",
+  "samsung-s10+",
+  ]
+  return phones.includes(DEVICE)
+}
