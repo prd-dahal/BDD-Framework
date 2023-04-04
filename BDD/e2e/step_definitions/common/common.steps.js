@@ -186,3 +186,7 @@ Then("upload car images", ()=>{
   }
   
 })
+
+Then ("wait for tpl vehicle-detail", ()=>{
+  cy.wait("@tplVehicleDetail")
+})

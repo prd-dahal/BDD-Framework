@@ -40,6 +40,7 @@ export const insonInterceptors = () => {
     `${envVariables["DASHBOARD_API"]}payment/product/car-insurance/policy/Premium/premium/`
   ).as("premiumCalculate");
   cy.intercept("POST", `${envVariables["CYPRESS_CMS_URL"]}common/files` ).as("carImageClick")
+  cy.intercept("POST", `${envVariables["CYPRESS_DASHBOARD_URL"]}payment/fond/vehicle-detail`).as("tplVehicleDetail")
 };
 
 
