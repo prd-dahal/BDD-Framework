@@ -176,3 +176,13 @@ Then("payme fillOtp with {string}", (OTP) => {
   cy.wait("@paymeSendOTP");
   cy.fillOtpPayme(OTP);
 });
+
+Then("upload car images", ()=>{
+  for (let i=0;i<=5;i++){
+    cy.get(`[data-testid=openCamera]`).eq(i).click()
+    cy.get(`[data-testid=captureImage]`).click()
+    cy.get(`[data-testid=clickOk]`).eq(i).click()  
+    cy.wait('@carImageClick')
+  }
+  
+})

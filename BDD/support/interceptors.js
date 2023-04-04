@@ -39,7 +39,9 @@ export const insonInterceptors = () => {
     "POST",
     `${envVariables["DASHBOARD_API"]}payment/product/car-insurance/policy/Premium/premium/`
   ).as("premiumCalculate");
+  cy.intercept("POST", `${envVariables["CYPRESS_CMS_URL"]}common/files` ).as("carImageClick")
 };
+
 
 export const mshieldInterceptors = () => {
   // all interceptors for mshield
