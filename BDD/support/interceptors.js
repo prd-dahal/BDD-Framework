@@ -41,6 +41,7 @@ export const insonInterceptors = () => {
   ).as("premiumCalculate");
   cy.intercept("POST", `${envVariables["CYPRESS_CMS_URL"]}common/files` ).as("carImageClick")
   cy.intercept("POST", `${envVariables["CYPRESS_DASHBOARD_URL"]}payment/fond/vehicle-detail`).as("tplVehicleDetail")
+  cy.intercept("POST", `${envVariables["CYPRESS_DASHBOARD_URL"]}payment/fond/passport-date-of-birth`).as("tplDateOfBirth")
 };
 
 

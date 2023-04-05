@@ -19,4 +19,5 @@ module.exports = defineConfig({
     videosFolder: "BDD/videos",
     downloadsFolder: "BDD/downloads",
   },
+  responseTimeout:300000
 });

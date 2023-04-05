@@ -190,3 +190,6 @@ Then("upload car images", ()=>{
 Then ("wait for tpl vehicle-detail", ()=>{
   cy.wait("@tplVehicleDetail")
 })
+Then ("wait for tpl passport-date-of-birth", ()=>{
+  cy.wait("@tplDateOfBirth")
+})
