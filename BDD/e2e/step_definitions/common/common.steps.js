@@ -18,12 +18,13 @@ Given("the test is done in {string}", (DEVICE) => {
     throw new Error("The device is not found");
   } else {
     cy.viewport(DEVICE);
-    if(isPhone(DEVICE)){
-      cy.on('window:before:load', (win) => {
-        Object.defineProperty(win.navigator, 'userAgent', {
-           value: 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
-          });
-      })
+    if (isPhone(DEVICE)) {
+      cy.on("window:before:load", (win) => {
+        Object.defineProperty(win.navigator, "userAgent", {
+          value:
+            "Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1",
+        });
+      });
     }
   }
 });
@@ -177,19 +178,22 @@ Then("payme fillOtp with {string}", (OTP) => {
   cy.fillOtpPayme(OTP);
 });
 
-Then("upload car images", ()=>{
-  for (let i=0;i<=5;i++){
-    cy.get(`[data-testid=openCamera]`).eq(i).click()
-    cy.get(`[data-testid=captureImage]`).click()
-    cy.get(`[data-testid=clickOk]`).eq(i).click()  
-    cy.wait('@carImageClick')
+Then("upload car images", () => {
+  for (let i = 0; i <= 5; i++) {
+    cy.get(`[data-testid=openCamera]`).eq(i).click();
+    cy.get(`[data-testid=captureImage]`).click();
+    cy.get(`[data-testid=clickOk]`).eq(i).click();
+    cy.wait("@carImageClick");
   }
-  
-})
+});
 
-Then ("wait for tpl vehicle-detail", ()=>{
-  cy.wait("@tplVehicleDetail")
-})
-Then ("wait for tpl passport-date-of-birth", ()=>{
-  cy.wait("@tplDateOfBirth")
-})
+Then("wait for tpl vehicle-detail", () => {
+  cy.wait("@tplVehicleDetail");
+});
+Then("wait for tpl passport-date-of-birth", () => {
+  cy.wait("@tplDateOfBirth");
+});
+
+Then("select {string} as destination on travel", (country) => {
+  cy.get("[data-testid=destinationCountry]").type(`${country}{enter}{enter}`);
+});
