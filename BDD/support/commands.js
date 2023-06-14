@@ -52,9 +52,8 @@ Cypress.Commands.add("fillDate", (splittedDate, selector) => {
       .click()
       .type(`${splittedDate.day}{enter}{enter}`);
     cy.wait(500);
-    cy.get('[data-testid="date-month"]')
-      .click()
-      .type(`${splittedDate.month}{enter}{enter}`);
+    cy.get('[data-testid="date-month"]').click();
+    cy.get(`span[title="${splittedDate.month}"]`).click();
     cy.wait(500);
     cy.get('[data-testid="date-year"]')
       .click()
@@ -96,7 +95,7 @@ Cypress.Commands.add("fillOtpAPI", (PHONE_NUMBER) => {
         // response.body is automatically serialized into JSON
         expect(response.status).is.equal(200); // true
         cy.wait(2000);
-        console.log(messageArray)
+        console.log(messageArray);
         const messageArray = response?.body.message.split(" ");
         console.log(messageArray);
         console.log(response);
