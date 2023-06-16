@@ -1,5 +1,6 @@
 import { envVariables } from "../config";
 export const commonInterceptors = () => {
+  console.log("cmsurl",envVariables["CYPRESS_CMS_URL"])
   cy.intercept(
     "POST",
     `${envVariables["CYPRESS_CMS_URL"]}**/registrations/otp/**`

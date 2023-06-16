@@ -1,10 +1,16 @@
 ////// CHANGE HERE FOR DIFFERENT ENVIRONMENT
+// const COMPANY = "MSHIELD"; // "INSON" or "MSHIELD"
+// const CONTENT_REVERSED=false
+// const TEST_URL = "https://onboard.mshield-dev.taksure.xyz/en/personal-accident/form";
+// const DASHBOARD_URL = "https://dashboard.mshield-dev.taksure.xyz/api/v1/";
+// const CMS_URL = "https://cms.mshield-dev.taksure.xyz/api/v1/";
+
 const COMPANY = "INSON"; // "INSON" or "MSHIELD"
 const CONTENT_REVERSED=false
 const TEST_URL = "https://onboard.v2.taksure.xyz/en-GB/tpl-insurance/form";
 const DASHBOARD_URL = "https://dashboard.v2.taksure.xyz/api/v1/";
 const CMS_URL = "https://cms.v2.taksure.xyz/api/v1/";
-//////
+////
 
 //DO NOT EDIT THIS
 export const envVariables = {
