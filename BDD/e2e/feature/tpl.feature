@@ -10,22 +10,30 @@ Feature: INSON TPL INSURANCE
         Then click on "+998"
         Then click on "+977"
         Then type TEXT "9801900037" on "phoneNumber"
-        Then click on "nextBtn"
         Then wait for "2000" miliseconds
-
-        Then FillOTP PHONE_NUMBER "9779801900037"
+        Then click on "nextBtn"
+        Then wait for "4000" miliseconds
+        # Then FillOTP PHONE_NUMBER "9779801900037"
         Then select date "11 October 1979" on "dateOfBirth"
         Then type TEXT "AB" on "passportSeries"
         Then type TEXT "2068873" on "passportNumber"
         Then click on "addDriverBtn"
         Then wait for "2000" miliseconds
-
-        Then click on "relationship"
-        Then click on "Father"
+        Then select TEXT "Father" of "relationship"
         Then select date "29 January 1993" on "dob"
-        Then type TEXT "AD" on "passportSeries"
-        Then type TEXT "2527649" on "passportNumber"
+        Then wait for "2000" miliseconds
+        Then type TEXT "AD" on "driverPassportSeries"
+        Then type TEXT "2527649" on "driverPassportNumber"
+        Then wait for "2000" miliseconds
         Then click on "addBtn"
+        Then wait for "5000" miliseconds
+        Then click on "nextBtn"
+        Then wait for "5000" miliseconds
+        Then click on "confirmTerms"
+        Then click on "tpl-confirm-button"
+
+
+
 
 
 
