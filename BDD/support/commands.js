@@ -50,9 +50,9 @@ Cypress.Commands.add("fillDate", (splittedDate, selector) => {
     cy.wait(500);
     cy.get('[data-testid="date-day"]')
       .click()
-      .type(`${splittedDate.day}{enter}{enter}`);
+      .type(`${splittedDate.day}{enter}`);
     cy.wait(500);
-    cy.get('[data-testid="date-month"]').click();
+    // cy.get('[data-testid="date-month"]').click();
     cy.get(`span[title="${splittedDate.month}"]`).click();
     cy.wait(500);
     cy.get('[data-testid="date-year"]')
